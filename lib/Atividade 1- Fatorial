@@ -2,15 +2,13 @@
 //1. Fatorial Implemente uma função recursiva em C que calcule o fatorial de um número inteiro não negativo n.
 
 int fatorial(int n ){
-
-if(n==1){
+if(n==1){ 
     return 1;
 }
 else{
     return n*fatorial(n-1);
 }
 }
-
 int main() {
 int n=5;
 printf( "O fatorial de %d é igual a:%d",n,fatorial(n));
