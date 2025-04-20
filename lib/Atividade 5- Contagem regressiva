@@ -1,0 +1,16 @@
+#include <stdio.h>
+ //Escreva uma função recursiva em C que imprima uma contagem regressiva de `n` até 0.
+
+int contagem(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    printf("%d ", n);  
+    return contagem(n - 1);  
+}
+int main() {
+    int n=5;
+    printf("Contagem: ");
+    contagem(n);
+    return 0;
+}
