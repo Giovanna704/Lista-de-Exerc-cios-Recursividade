@@ -1,0 +1,16 @@
+#include<stdio.h>
+//4. Potência: Implemente uma função recursiva em C que calcula xelevado a n(assume ninteiro não negativo).
+int potência(int x, int n){
+if(n==0){
+return 1;
+}
+else{
+return x*potência(x,n-1);
+}
+}
+int main() {
+int x=5,n=2;
+int resultado;
+resultado=potência(x,n);
+printf("%d elevado a %d é igual a:%d ",x,n,resultado);
+}
