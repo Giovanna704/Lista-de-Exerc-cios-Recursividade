@@ -1,0 +1,17 @@
+#include <stdio.h>
+//3.Sequência de Fibonacci :Crie uma função recursiva em C que retorne o n-ésimo termo da sequência de Fibonacci.
+int fibonacci(int n){
+if(n==0){
+return 0;
+}
+else if(n==1){
+return 1;
+}
+else{
+return fibonacci(n-1)+fibonacci(n-2);
+}
+}
+int main() {
+int n=10;
+printf("O resultado de finonacci(%d) é:%d\n",n,fibonacci(n));
+}
