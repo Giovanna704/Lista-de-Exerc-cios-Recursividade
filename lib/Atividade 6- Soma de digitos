@@ -1,0 +1,14 @@
+#include<stdio.h>
+//  6.Implemente uma função recursiva em C que retorne a soma dos dígitos de um número inteiro positivo.  
+int SomaDig(int n) {
+if (n == 0) {
+return 0;
+}
+return (n % 10) + SomaDig(n / 10);
+}
+
+int main() {
+int num=285;
+printf("A soma do numero %d é: %d\n",num, SomaDig(num));
+return 0;
+}
