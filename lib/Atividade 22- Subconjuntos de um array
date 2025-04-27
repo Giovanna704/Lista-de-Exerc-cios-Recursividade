@@ -1,0 +1,26 @@
+#include <stdio.h>
+//22. Subconjuntos de um array: Escreva uma função recursiva em C que gere todos os subconjuntos de um array (incluindo o conjunto vazio).  
+void subconjuntos(int arr[], int n, int index, int data[], int dataIndex) {
+    if (index == n) {
+        printf("{ ");
+        for (int i = 0; i < dataIndex; i++) {
+            printf("%d ", data[i]);
+        }
+        printf("}\n");
+        return;
+    }
+    data[dataIndex] = arr[index];
+    subconjuntos(arr, n, index + 1, data, dataIndex + 1);
+    subconjuntos(arr, n, index + 1, data, dataIndex);
+}
+
+int main() {
+    int arr[] = {1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int data[n];
+    
+    printf("Subconjuntos:\n");
+    subconjuntos(arr, n, 0, data, 0);
+    
+    return 0;
+}
