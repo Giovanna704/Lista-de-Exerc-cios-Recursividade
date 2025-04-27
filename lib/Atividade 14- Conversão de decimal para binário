@@ -1,0 +1,15 @@
+#include <stdio.h>
+//14. Conversão de decimal para binário: Escreva uma função recursiva em C que converta um número decimal em sua representação binária (como string ou número). 
+void decimal_para_binario(int n) {
+if (n > 1) {
+decimal_para_binario(n / 2);
+}
+printf("%d", n % 2);
+}
+int main() {
+int n=10;
+printf("A representação binária de %d é: ", n);
+decimal_para_binario(n);
+printf("\n");
+return 0;
+}
