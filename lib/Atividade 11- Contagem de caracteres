@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include<string.h>
+//11. Contagem de caracteres: Escreva uma função recursiva em C que conte quantas vezes um caractere específico aparece em uma string.  
+int contar_caractere(char str[], char c, int i) {
+if (str[i] == '\0') {
+return 0;
+}
+if (str[i] == c) {
+return 1 + contar_caractere(str, c, i + 1);
+}
+return contar_caractere(str, c, i + 1);
+}
+
+int main() {
+char str[100], c;
+printf("Digite a string: ");
+fgets(str, sizeof(str), stdin);
+str[strcspn(str, "\n")] = '\0';
+printf("Digite o caractere a ser contado: ");
+scanf("%c", &c);
+printf("O caractere '%c' aparece %d vezes na string.\n", c, contar_caractere(str, c, 0));
+return 0;
+}
