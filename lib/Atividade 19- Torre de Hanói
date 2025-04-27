@@ -1,0 +1,18 @@
+#include <stdio.h>
+//19. Torre de Hanói: Implemente uma solução recursiva em C para o problema da Torre de Hanói. O programa deve imprimir os movimentos necessários para mover `n` discos do pino A para o pino C, usando B como auxiliar.  
+void torre_de_hanoi(int n, char origem, char auxiliar, char destino) {
+    if (n == 1) {
+        printf("Mover disco 1 de %c para %c\n", origem, destino);
+        return;
+    }
+    torre_de_hanoi(n - 1, origem, destino, auxiliar); 
+    printf("Mover disco %d de %c para %c\n", n, origem, destino);
+    torre_de_hanoi(n - 1, auxiliar, origem, destino); 
+}
+
+int main() {
+    int n = 2; 
+    printf("Solução para %d discos:\n", n);
+    torre_de_hanoi(n, 'A', 'B', 'C');
+    return 0;
+}
