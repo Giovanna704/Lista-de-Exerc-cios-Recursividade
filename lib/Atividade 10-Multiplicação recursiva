@@ -1,0 +1,15 @@
+#include <stdio.h>
+//Atividade 10: Multiplicação recursiva: Implemente uma função recursiva em C que multiplique dois números inteiros não negativos usando apenas adições.  
+int multiplicar(int a, int b) {
+if (b == 0) {
+return 0;
+}
+return a + multiplicar(a, b - 1);
+}
+
+int main() {
+int a=5;
+int b=4;
+printf("Resultado: %d\n", multiplicar(a, b));
+return 0;
+}
