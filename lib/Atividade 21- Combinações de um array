@@ -1,0 +1,30 @@
+#include <stdio.h>
+//21. Combinações de um array: Implemente uma função recursiva em C que gere todas as combinações de tamanho `k` de um array de inteiros. 
+void combinacoes(int arr[], int n, int k, int index, int data[], int i) {
+    if (index == k) {
+        printf("{ ");
+        for (int j = 0; j < k; j++) {
+            printf("%d ", data[j]);
+        }
+        printf("}\n");
+        return;
+    }
+    if (i >= n) {
+        return;
+    }
+    data[index] = arr[i];
+    combinacoes(arr, n, k, index + 1, data, i + 1);
+    combinacoes(arr, n, k, index, data, i + 1);
+}
+
+int main() {
+    int arr[] = {1, 2, 3};
+    int k = 2;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int data[k];
+    
+    printf("Combinações de tamanho %d:\n", k);
+    combinacoes(arr, n, k, 0, data, 0);
+    
+    return 0;
+}
