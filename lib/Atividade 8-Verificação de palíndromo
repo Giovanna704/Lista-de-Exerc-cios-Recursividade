@@ -1,0 +1,27 @@
+
+#include <stdio.h>
+#include <string.h>
+// 8. Verificação de palíndromo Implemente uma função recursiva em C que verifique se uma string é um palíndromo (lê-se igual de trás para frente).  
+int palindromo(char str[], int inicio, int fim) {
+if (inicio >= fim) {
+return 1;
+}
+if (str[inicio] != str[fim]) {
+return 0;
+}
+return palindromo(str, inicio + 1, fim - 1);
+}
+
+int main() {
+char str[100];
+printf("Digite uma palavra: ");
+fgets(str, sizeof(str), stdin);
+str[strcspn(str, "\n")] = '\0';
+int tamanho = strlen(str);
+if (palindromo(str, 0, tamanho - 1)) {
+printf("A palavra é um palíndromo.\n");
+} else {
+printf("A palavra não é um palíndromo.\n");
+}
+return 0;
+}
