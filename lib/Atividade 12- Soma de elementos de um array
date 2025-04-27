@@ -1,0 +1,15 @@
+#include <stdio.h>
+// Atividade 12. Soma de elementos de um array: Implemente uma função recursiva em C que calcule a soma de todos os elementos de um array de inteiros.  
+int soma_array(int arr[], int tamanho) {
+if (tamanho == 0) {
+return 0;
+}
+return arr[tamanho - 1] + soma_array(arr, tamanho - 1);
+}
+
+int main() {
+int arr[] = {1, 2, 3, 4};
+int tamanho = sizeof(arr) / sizeof(arr[0]);
+printf("A soma dos elementos do array é: %d\n", soma_array(arr, tamanho));
+return 0;
+}
