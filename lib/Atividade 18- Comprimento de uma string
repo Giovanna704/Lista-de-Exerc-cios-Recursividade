@@ -1,0 +1,16 @@
+#include <stdio.h>
+//18. Comprimento de uma string: Crie uma função recursiva em C que calcule o comprimento de uma string (sem usar `strlen`). 
+int comprimento_recursivo(char str[]) {
+    if (str[0] == '\0') {
+        return 0; 
+    }
+    return 1 + comprimento_recursivo(str + 1); 
+}
+
+int main() {
+    char str[] = "recursivo";
+
+    printf("O comprimento da string \"%s\" é: %d\n", str, comprimento_recursivo(str));
+
+    return 0;
+}
