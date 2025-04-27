@@ -1,0 +1,21 @@
+#include <stdio.h>
+// 15. Impressão de números pares: Implemente uma função recursiva em C que imprima todos os números pares de `0` até `n` (inclusive).  
+void imprimir_pares(int n) {
+if (n < 0) {
+return;
+}
+imprimir_pares(n - 1);
+if (n % 2 == 0) {
+printf("%d ", n);
+}
+}
+
+int main() {
+int n=20;
+
+printf("Números pares de 0 até %d: ", n);
+imprimir_pares(n);
+printf("\n");
+
+return 0;
+}
