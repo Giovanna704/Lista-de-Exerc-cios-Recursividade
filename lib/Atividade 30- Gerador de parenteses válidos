@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+// 30. Gerador de parênteses válidos
+// Implemente uma função recursiva em C que gere todas as combinações válidas de n pares de parênteses.
+
+void gerar_parenteses(char *str, int pos, int n, int aberto, int fechado) {
+    if (fechado == n) {
+        str[pos] = '\0';
+        printf("%s\n", str);
+        return;
+    }
+    if (aberto < n) {
+        str[pos] = '(';
+        gerar_parenteses(str, pos + 1, n, aberto + 1, fechado);
+    }
+    if (fechado < aberto) {
+        str[pos] = ')';
+        gerar_parenteses(str, pos + 1, n, aberto, fechado + 1);
+    }
+}
+
+int main() {
+    int n = 3;
+    char str[2 * n + 1];
+    gerar_parenteses(str, 0, n, 0, 0);
+    return 0;
+}
