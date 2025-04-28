@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+// 28. Problema das N-rainhas
+// Implemente uma solução recursiva em C para o problema das N-rainhas. O programa deve imprimir todas as configurações válidas onde n rainhas são posicionadas em um tabuleiro n x n sem se atacarem
+#define N 4
+int tabuleiro[N][N];
+int podeColocar(int linha, int coluna) {
+    for (int i = 0; i < linha; i++) {
+        if (tabuleiro[i][coluna]) {
+            return 0;
+        }
+    }
+    for (int i = linha-1, j = coluna-1; i >= 0 && j >= 0; i--, j--) {
+        if (tabuleiro[i][j]) {
+            return 0;
+        }
+    }
+    for (int i = linha-1, j = coluna+1; i >= 0 && j < N; i--, j++) {
+        if (tabuleiro[i][j]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+void imprimirTabuleiro() {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (tabuleiro[i][j])
+                printf("Q ");
+            else
+                printf(". ");
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void resolver(int linha) {
+    if (linha == N) {
+        imprimirTabuleiro();
+        return;
+    }
+    for (int col = 0; col < N; col++) {
+        if (podeColocar(linha, col)) {
+            tabuleiro[linha][col] = 1;
+            resolver(linha + 1);
+            tabuleiro[linha][col] = 0;
+        }
+    }
+}
+
+int main() {
+    resolver(0);
+    return 0;
+}
