@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+// 27. Caminho em uma matriz
+// Escreva uma função recursiva em C que encontre um caminho de uma posição (x1, y1) até (x2, y2) em uma matriz, movendo-se apenas para a direita ou para baixo
+int contarCaminhos(int x1, int y1, int x2, int y2) {
+    if (x1 > x2 || y1 > y2) {
+        return 0;
+    }
+    if (x1 == x2 && y1 == y2) {
+        return 1;
+    }
+    return contarCaminhos(x1 + 1, y1, x2, y2) + contarCaminhos(x1, y1 + 1, x2, y2);
+}
+
+int main() {
+    int linhas = 3, colunas = 3;
+    int totalCaminhos = contarCaminhos(0, 0, linhas - 1, colunas - 1);
+    printf("Total de caminhos de (0,0) até (%d,%d): %d\n", linhas - 1, colunas - 1, totalCaminhos);
+    return 0;
+}
